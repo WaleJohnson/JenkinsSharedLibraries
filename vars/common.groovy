@@ -2,14 +2,14 @@ def call(String stageName){
   
   if ("${stageName}" == "Build")
      {
-       sh "echo 'Building'"
+       sh "mvn clean package"
      }
   else if ("${stageName}" == "SonarQube Report")
      {
-       sh "echo 'Testing'"
+       sh "mvn sonar:sonar"
      }
   else if ("${stageName}" == "Upload Into Nexus")
      {
-       sh "echo 'Deploying'"
+       sh "mvn deploy"
      }
 }
